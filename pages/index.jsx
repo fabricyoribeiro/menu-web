@@ -14,7 +14,7 @@ export default function Home() {
   }, 2000)
 
   useEffect(() => {
-    axios.get('http://localhost:3003/requests')
+    axios.get('https://menu-api-hosz.onrender.com/requests')
     .then(response => setRequests(response.data))
   }, [status])
 
@@ -23,13 +23,14 @@ export default function Home() {
   }
 
   function updateStatus(num_mesa){
-    axios.put('http://localhost:3003/update', {
+    axios.put('https://menu-api-hosz.onrender.com/update', {
       num_mesa: num_mesa
     })
   }
 
   return (
     <ul>
+      <li>Pedidos</li>
       {
         requests.map((request) => {
           if(request.pending){

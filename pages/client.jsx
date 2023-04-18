@@ -40,7 +40,7 @@ export default function Client() {
     //       console.log('incluso')
     //       return
     //     }else{
-          axios.post('http://localhost:3003/add', data)
+          axios.post('https://menu-api-hosz.onrender.com/add', data)
     //     }
         
     //   }else{
