@@ -11,7 +11,7 @@ export default function Home() {
 
   setInterval(()=> {
     alterStatus()
-  }, 2000)
+  }, 3000)
 
   useEffect(() => {
     axios.get('https://menu-api-hosz.onrender.com/requests')
@@ -30,7 +30,7 @@ export default function Home() {
 
   return (
     <ul>
-      <li>Pedidos</li>
+      <li>Pedidos.</li>
       {
         requests.map((request) => {
           if(request.pending){
