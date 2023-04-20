@@ -6,17 +6,28 @@ const avaria = Averia_Sans_Libre({
   subsets: ['latin'], 
   weight: ['300', '400', '700']
 })
+import _ from 'lodash';
 
 
 export default function Home() {
   const [requests, setRequests] = useState([])
 
-  const socket = io('https://menu-api-9kg2.onrender.com/')
+  
+  
+  const sendMessage = _.throttle((message) => {
 
-  socket.on('request', data => {
-    // console.log(data)
-    setRequests(data)
-  })
+    const socket = io('http://localhost:4000')
+  // envia a mensagem para o servidor
+    socket.on('request', data => {
+      // console.log(data)
+      setRequests(data)
+    })
+  }, 1000); // limite de 1 envio por segundo
+
+// chamando a função
+sendMessage('Olá!');
+
+
 
   function updateStatus(num_mesa) {
     socket.emit('update', num_mesa)
