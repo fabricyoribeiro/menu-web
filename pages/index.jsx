@@ -14,7 +14,7 @@ export default function Home() {
 
   useEffect(
     () => {
-      var socket = io('https://menu-api-fcoy.onrender.com:4000');
+      var socket = io('https://menu-api-fcoy.onrender.com');
       socket.connect();
       socket.on('request', data => {
       // console.log(data)
