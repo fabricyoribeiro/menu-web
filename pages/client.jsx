@@ -3,7 +3,7 @@ export default function Client() {
 
   useEffect(
     () => {
-      const socket = io('https://menu-api-fcoy.onrender.com');
+      const socket = io('https://menu-api-fcoy.onrender.com:4000');
       socket.connect();
     //   socket.on('request', data => {
     //   // console.log(data)
