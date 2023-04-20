@@ -14,7 +14,7 @@ export default function Home() {
 
   useEffect(
     () => {
-      const socket = io('https://menu-api-fcoy.onrender.com');
+      var socket = io('https://menu-api-fcoy.onrender.com:4000');
       socket.connect();
       socket.on('request', data => {
       // console.log(data)
@@ -27,6 +27,10 @@ export default function Home() {
     []
   )
 
+  //mexer aqui
+  function updateStatus(num_mesa) {
+    socket.emit('update', num_mesa)
+  }
   
   
 //   const sendMessage = _.throttle((message) => {
@@ -44,9 +48,6 @@ export default function Home() {
 
 
 
-  function updateStatus(num_mesa) {
-    socket.emit('update', num_mesa)
-  }
 
   return (
     <div
