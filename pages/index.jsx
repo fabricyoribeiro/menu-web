@@ -1,9 +1,7 @@
-import Image from 'next/image'
 import { Inter, Averia_Sans_Libre } from 'next/font/google'
-import { useEffect, useState } from 'react'
+import {useState } from 'react'
 const inter = Inter({ subsets: ['latin'] })
 import { io } from 'socket.io-client'
-import Running from '@/components/running'
 const avaria = Averia_Sans_Libre({
   subsets: ['latin'], 
   weight: ['300', '400', '700']
