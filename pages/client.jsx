@@ -36,6 +36,8 @@ export default function Client() {
       pending: true
     }
 
+    const socket = io('https://menu-api-fcoy.onrender.com');
+
 
     socket.emit('request', data)
 
