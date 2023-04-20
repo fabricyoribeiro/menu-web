@@ -1,31 +1,46 @@
 import { Inter, Averia_Sans_Libre } from 'next/font/google'
-import {useState } from 'react'
+import {useEffect, useState } from 'react'
 const inter = Inter({ subsets: ['latin'] })
 import { io } from 'socket.io-client'
 const avaria = Averia_Sans_Libre({
   subsets: ['latin'], 
   weight: ['300', '400', '700']
 })
-import _ from 'lodash';
+// import _ from 'lodash';
 
 
 export default function Home() {
   const [requests, setRequests] = useState([])
 
-  
-  
-  const sendMessage = _.throttle((message) => {
-
-    const socket = io('http://localhost:4000')
-  // envia a mensagem para o servidor
-    socket.on('request', data => {
+  useEffect(
+    () => {
+      const socket = io('https://menu-api-fcoy.onrender.com');
+      socket.connect();
+      socket.on('request', data => {
       // console.log(data)
       setRequests(data)
-    })
-  }, 1000); // limite de 1 envio por segundo
+    })      
+      return () => {
+        socket.disconnect();
+      }
+    },
+    []
+  )
 
-// chamando a função
-sendMessage('Olá!');
+  
+  
+//   const sendMessage = _.throttle((message) => {
+
+//     const socket = io('http://localhost:4000')
+//   // envia a mensagem para o servidor
+//     socket.on('request', data => {
+//       // console.log(data)
+//       setRequests(data)
+//     })
+//   }, 1000); // limite de 1 envio por segundo
+
+// // chamando a função
+// sendMessage('Olá!');
 
 
 

@@ -1,6 +1,22 @@
 import { io } from 'socket.io-client'
 export default function Client() {
 
+  useEffect(
+    () => {
+      const socket = io('https://menu-api-fcoy.onrender.com');
+      socket.connect();
+    //   socket.on('request', data => {
+    //   // console.log(data)
+    //   setRequests(data)
+    // })      
+      return () => {
+        socket.disconnect();
+      }
+    },
+    []
+  )
+
+
   function callWaiter() {
     const urlParams = new URLSearchParams(window.location.search)
     var number = urlParams.get('number')
@@ -19,7 +35,6 @@ export default function Client() {
       pending: true
     }
 
-    const socket = io('http://localhost:4000')
 
     socket.emit('request', data)
 
