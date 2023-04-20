@@ -45,16 +45,7 @@ export default function Client() {
 
   return (
     <div>
-      <label htmlFor="">Digite o número da mesa:</label>
-      <input
-        className="border-2 border-black"
-        type="number"
-        name=""
-        id=""
-        onChange={e => {
-          setNumberMesa(e.target.value)
-        }}
-      />
+
       <button onClick={callWaiter}>Chamar garçom</button>
     </div>
   )
