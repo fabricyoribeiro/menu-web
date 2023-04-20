@@ -11,7 +11,7 @@ const avaria = Averia_Sans_Libre({
 export default function Home() {
   const [requests, setRequests] = useState([])
 
-  const socket = io('https://menu-api-hosz.onrender.com/')
+  const socket = io('https://menu-api-9kg2.onrender.com/')
 
   socket.on('request', data => {
     // console.log(data)

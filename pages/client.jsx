@@ -19,7 +19,7 @@ export default function Client() {
       pending: true
     }
 
-    const socket = io('https://menu-api-hosz.onrender.com:4000')
+    const socket = io('https://menu-api-9kg2.onrender.com/')
 
     socket.emit('request', data)
 
