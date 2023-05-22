@@ -6,7 +6,6 @@ const avaria = Averia_Sans_Libre({
   subsets: ['latin'], 
   weight: ['300', '400', '700']
 })
-// import _ from 'lodash';
 
 
 export default function Home() {
@@ -17,7 +16,6 @@ export default function Home() {
       const socket = io('https://menu-api-fcoy.onrender.com');
       socket.connect();
       socket.on('request', data => {
-      // console.log(data)
       setRequests(data)
     })      
       return () => {
@@ -33,22 +31,6 @@ export default function Home() {
 
     socket.emit('update', num_mesa)
   }
-  
-  
-//   const sendMessage = _.throttle((message) => {
-
-//     const socket = io('http://localhost:4000')
-//   // envia a mensagem para o servidor
-//     socket.on('request', data => {
-//       // console.log(data)
-//       setRequests(data)
-//     })
-//   }, 1000); // limite de 1 envio por segundo
-
-// // chamando a função
-// sendMessage('Olá!');
-
-
 
 
   return (
