@@ -6,10 +6,7 @@ export default function Client() {
     () => {
       const socket = io('https://menu-api-fcoy.onrender.com');
       socket.connect();
-    //   socket.on('request', data => {
-    //   // console.log(data)
-    //   setRequests(data)
-    // })      
+     
       return () => {
         socket.disconnect();
       }
