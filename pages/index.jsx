@@ -25,7 +25,6 @@ export default function Home() {
     []
   )
 
-  //mexer aqui
   function updateStatus(num_mesa) {
     const socket = io('https://menu-api-fcoy.onrender.com');
 
